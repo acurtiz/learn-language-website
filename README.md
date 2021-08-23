@@ -1,0 +1,1 @@
+This is the static site generation for a language learning website.
