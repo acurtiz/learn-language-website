@@ -1,8 +1,50 @@
-<html>
-  <title>
-    Test
-  </title>
-  <body>
-    <p>Content here</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cross Language Match</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <center>
+    <p>
+      Download sample text file (to use when the game prompts you) <a href="/assets/cross-language-match/sample-word-pairs.txt">here</a>.
+    </p>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+  </center>
+  <br><br>
+  
+  <script type='text/javascript'>
+    
+    var Module = {
+        print: function (text) {
+            console.log('stdout: ' + text)
+        },
+        printErr: function (text) {
+            console.log('stderr: ' + text)
+        },
+        // This is used to help locate and load the data and WASM files
+        locateFile: function (path, prefix) {
+            var modified_path = "/assets/cross-language-match/" + path;
+            return modified_path;
+        },
+        canvas: (function () {
+            var canvas = document.getElementById('canvas');
+
+            // As a default initial behavior, pop up an alert when webgl context is lost. To make your
+            // application robust, you may want to override this behavior before shipping!
+            // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+            canvas.addEventListener("webglcontextlost", function (e) {
+                alert('WebGL context lost. You will need to reload the page.');
+                e.preventDefault();
+            }, false);
+
+            return canvas;
+        })()
+    };
+
+  </script>
+  <script async src="/assets/cross-language-match/CrossLanguageMatch.js"></script>
+</body>
 </html>

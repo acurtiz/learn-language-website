@@ -1,1 +1,1 @@
-This is the static site generation for a language learning website.
+This is the HTML/CSS for a website for learning languages.
